@@ -1,0 +1,53 @@
+<div
+  id="success_msg"
+  style="
+    position: absolute;
+    transform: translate(150px, -200px);
+    background-color: #eb6b15;
+    border-radius: 17px;
+    padding: 0.5% 1%;
+    display: none;
+  "
+>
+  <h5 class="text">{{ sucess_msg }}</h5>
+</div>
+<div class="add_task_page">
+  <div class="add_form">
+    <h4>Add a new task</h4>
+    <form [formGroup]="addForm" ngSubmit="addNow()">
+      <label for="">Enter a title</label>
+      <input
+        class="form-control"
+        formControlName="title"
+        type="text"
+        placeholder="eg: Thursdat Meeting"
+      />
+      <label for="">Enter Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name=""
+        formControlName="date"
+        id=""
+      />
+      <label for="">Enter time</label>
+      <input
+        value="00:00 am"
+        class="form-control"
+        placeholder="00 00 am"
+        formControlName="time"
+        type="time"
+      />
+      <label for="">Enter Description</label>
+      <input
+        type="text"
+        placeholder="Enter description"
+        class="form-control"
+        formControlName="task"
+      />
+      <button (click)="addNow()" class="btn btn-primary" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

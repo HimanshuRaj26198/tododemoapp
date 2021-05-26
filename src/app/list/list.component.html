@@ -1,0 +1,90 @@
+<div class="list_page">
+  <div
+    id="success_msg"
+    style="
+      position: absolute;
+      transform: translate(18px, -400px);
+      background-color: #bf0000;
+      border-radius: 17px;
+      padding: 0.5% 1%;
+      display: none;
+    "
+  >
+    <h5 class="text" style="color: white">Deleted Sucess</h5>
+  </div>
+  <div class="lists">
+    <div class="heading">
+      <h2>Task Reminder</h2>
+      <div class="toggle_data">
+        <a (click)="getTask()"> <h5>All</h5></a>
+
+        <div id="border"></div>
+
+        <a (click)="getPending()" value="Pending"> <h5>Pending</h5></a>
+        <div id="border"></div>
+        <a (click)="getCompleted()"> <h5>Copleted</h5></a>
+      </div>
+      <button class="btn btn-warning" (click)="addTask()">New Task</button>
+    </div>
+    <div class="main_content">
+      <div *ngFor="let task of collection" class="single_task">
+        <div class="task_body">
+          <h4>{{ task.title }}</h4>
+          <h6>{{ task.task }}</h6>
+        </div>
+        <div class="date_container">
+          <p>Date</p>
+          <strong>{{ task.date }}</strong>
+        </div>
+        <div class="date_container">
+          <p>Time</p>
+          <strong> {{ task.time }} </strong>
+        </div>
+        <div class="task_actions">
+          <button
+            (click)="editTask(task._id)"
+            *ngIf="task.completed === false"
+            class="btn btn-warning"
+          >
+            Edit
+          </button>
+          <button
+            (click)="completeIt(task._id)"
+            *ngIf="task.completed === false"
+            class="btn btn-secondary"
+          >
+            Completed
+          </button>
+          <button
+            (click)="deleteTask(task._id)"
+            *ngIf="task.completed === true"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+          <button
+            style="
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            *ngIf="task.completed === true"
+            disabled
+            class="btn btn-success"
+          >
+            <i style="font-size: 25px" class="fas fa-check-circle"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom_style">
+    <h3>
+      <i (click)="prevPage()" class="fas fa-arrow-circle-left"></i>
+      <i (click)="nextPage()" class="fas fa-arrow-circle-right"></i>
+    </h3>
+  </div>
+</div>

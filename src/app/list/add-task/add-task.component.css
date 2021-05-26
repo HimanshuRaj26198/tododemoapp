@@ -1,0 +1,30 @@
+.add_task_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 14px;
+}
+.add_form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.add_form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.backdropBackground {
+  background-color: #f5aa31;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+form label {
+  font-size: 20px;
+}
+
+.add_form form input {
+  height: 40px;
+  margin-bottom: 2%;
+}
